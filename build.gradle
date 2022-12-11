@@ -2,7 +2,7 @@ plugins {
 	id 'java'
 	id 'org.springframework.boot' version '2.7.7-SNAPSHOT'
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
-}
+	id 'com.palantir.docker' version '0.33.0'}
 
 group = 'com.Vinutha'
 version = '0.0.1-SNAPSHOT'
@@ -13,7 +13,12 @@ repositories {
 	maven { url 'https://repo.spring.io/milestone' }
 	maven { url 'https://repo.spring.io/snapshot' }
 }
-
+docker{
+	name "mycoolapp"
+	dockerfile file('Dockerfile')
+	copySpec.from(jar).rename(".*","app.jar")
+	buildArgs(['JAR_FILE':"app.jar"])
+}
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
