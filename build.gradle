@@ -17,7 +17,7 @@ docker{
 	name "mycoolapp"
 	dockerfile file('Dockerfile')
 	copySpec.from(jar).rename(".*","app.jar")
-	buildArgs(['JAR_FILE':"app.jar"])
+	buildArgs(['mycoolapp':"app.jar"])
 }
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -27,3 +27,4 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+
