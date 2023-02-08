@@ -19,6 +19,9 @@ public class Welcome {
     git branch -M main
     git remote add origin https://github.com/Viinutha/SpringBootDeploy.git
     git push -u origin main
-    git update-index --chmod=+x gradlew */
+    git update-index --chmod=+x gradlew
+
+    docker ps
+    docker stop <containerid>*/
 }
 

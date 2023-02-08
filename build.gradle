@@ -15,9 +15,9 @@ repositories {
 }
 docker{
 	name "mycoolapp"
-	dockerfile file('Dockerfile')
+	dockerfile file('src/docker/Dockerfile')
 	copySpec.from(jar).rename(".*","app.jar")
-	buildArgs(['mycoolapp':"app.jar"])
+	buildArgs(['JAR_FILE':"app.jar"])
 }
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
@@ -28,3 +28,12 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
+
+//jar {
+//	manifest {
+//		attributes(
+//
+//				'Main-Class': 'com.Vinutha.springbootDocker.SpringbootDockerApplication'
+//		)
+//	}
+//}
